@@ -1,12 +1,11 @@
-n = gets.to_i
+_n = gets.chomp.to_i
 numbers = gets.chomp.split(' ').map(&:to_i)
 
-sum = numbers.sum
 count = 0
 
-while sum % 2 == 0
+while numbers.all?(&:even?) do
   count += 1
-  sum = sum / 2
+  numbers = numbers.map{|x|x/2}
 end
 
 puts count

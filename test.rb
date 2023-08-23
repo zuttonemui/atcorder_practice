@@ -1,32 +1,25 @@
-# NM = gets.split(' ')
-# N = NM[0].to_i # 路線の数
-# M = NM[1].to_i # 駅の数
+a = gets.chomp.to_i # 500
+b = gets.chomp.to_i # 100
+c = gets.chomp.to_i # 50
+x = gets.chomp.to_i # 合計金額
+count = 0
 
-# i = 1
-# A_ij = []
-# while i <= N do
-#   A_ij[i] = gets.split(' ')
-#   i += 1
-# end
+for i in 0..a do
+  x_a = x - 500 * i
+  break if x_a < 0
 
-# RS = gets.to_i # 経由する駅の個数
-# m = 1
-# RS_qu = []
-# while m <= RS do
-#   RS_qu[m] = gets.split(' ') # 目的駅{i,j}
-#   m += 1
-# end
+  for j in 0..b do
+    x_b = x_a - 100 * j
+    break if x_b < 0
 
-# puts fare
-
-n = gets.chomp
-
-if n.include?("ooo")
-  p = "o"
-elsif n.include?("xxx")
-  p = "x"
-else
-  p = "draw"
+    for k in 0..c do
+      x_c = x_b - 50 * k
+      if x_c == 0
+        count += 1
+      end
+      break if x_c < 0
+    end
+  end
 end
 
-puts p
+puts count
