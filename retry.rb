@@ -1,24 +1,21 @@
-N = gets.to_i
-A = N.times.collect { [:f, :s].zip(gets.split.map(&:to_i)).to_h }
-max = -1
-selected = nil
-A.each.with_index do |e, i|
-  if e[:s] > max
-    max = e[:s]
-    selected = i
+n = gets.to_i
+
+roulette = []
+n.times do |i|
+  _c = gets.to_i
+  numbers = gets.chomp.split(' ').map(&:to_i)
+  roulette << {id: i + 1, numbers: numbers }
+end
+x = gets.to_i
+
+ans =[]
+roulette.each do |person|
+  if person[:numbers].include?(x)
+    ans << person
   end
 end
-ans = 0
-A.each.with_index do |e, i|
-  if i == selected
-    next
-  end
-  if e[:f] == A[selected][:f]
-    s = e[:s] / 2
-  else
-    s = e[:s]
-  end
-  t = max + s
-  ans = [ans, t].max
-end
-puts ans
+
+ans = ans.sort.to_h
+
+puts ans.size
+puts ans.map| 
