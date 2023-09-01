@@ -1,11 +1,9 @@
-n,m = gets.split(' ').map(&:to_i)
-if m == 0
-  puts "-1"
-  exit
+# ABCDEFGJKPQTVWXYZ
+m = []
+i = 1
+
+while i <= 17 do
+    m << i
 end
 
-_a, b = m.times.map{gets.split(' ').map(&:to_i)}.transpose
-
-ans = (1..n).to_a - b.uniq
-
-puts ans.size == 1 ? ans : -1
+puts m
